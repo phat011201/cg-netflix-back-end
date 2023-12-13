@@ -18,6 +18,9 @@ app.use(express.json());
 app.use(cors());
 
 // use routes
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to the Video API!");
+});
 app.use("/api/v1/videos", videosRoutes);
 
 // define port
