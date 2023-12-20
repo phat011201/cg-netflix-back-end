@@ -2,6 +2,7 @@
 
 // import modules
 import express from "express";
+import cors from "cors";
 
 // import routes
 import videosRoutes from "./routes/videosRouter";
@@ -15,6 +16,7 @@ const app = express();
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 // use routes
 app.get("/", (req, res) => {
