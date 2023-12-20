@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to the Video API!" });
 });
 
-app.use("/apis/videos", videosRoutes);
-app.use("/apis/users", usersRouters);
+app.use("/api/v1/videos", videosRoutes);
+app.use("/api/v1/users", usersRouters);
 
 // define port
 const port = process.env.PORT || PORT;

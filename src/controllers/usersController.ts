@@ -22,6 +22,8 @@ const usersController = {
   addUser: (req: Request, res: Response) => {
     const { id, email, password } = new Users(
       req.body.id,
+      req.body.name,
+      req.body.nickname,
       req.body.email,
       req.body.password
     );
@@ -37,6 +39,8 @@ const usersController = {
     const id = Number(req.params.id);
     const user: any = usersData.find((user: any) => user.id === id);
     if (user) {
+      user.name = req.body.name;
+      user.nickname = req.body.nickname;
       user.email = req.body.email;
       user.password = req.body.password;
       res.status(200).json(user);
