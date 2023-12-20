@@ -2,10 +2,10 @@
 
 // import modules
 import express from "express";
-import cors from "cors";
 
 // import routes
 import videosRoutes from "./routes/videosRouter";
+import usersRouters from "./routes/usersRouter";
 
 // import app constants
 import { PORT, BASE_URL } from "./constants/appConstant";
@@ -15,13 +15,14 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.use(cors());
 
 // use routes
 app.get("/", (req, res) => {
-  res.status(200).send("Welcome to the Video API!");
+  res.status(200).json({ message: "Welcome to the Video API!" });
 });
-app.use("/api/v1/videos", videosRoutes);
+
+app.use("/apis/videos", videosRoutes);
+app.use("/apis/users", usersRouters);
 
 // define port
 const port = process.env.PORT || PORT;
